@@ -24,36 +24,13 @@ namespace App2
         int F = 0;
         string BaseDatos;
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            
-            dataGridView2.Rows.Add(1400);
-
-            OpenFileDialog openFileDialog = new OpenFileDialog
-            {
-                //DE ESTA MANERA FILTRAMOS TODOS LOS ARCHIVOS EXCEL EN EL NAVEGADOR DE ARCHIVOS
-                Filter = "Excel | *.xls;*.xlsx;",
-
-                //AQUÍ INDICAMOS QUE NOMBRE TENDRÁ EL NAVEGADOR DE ARCHIVOS COMO TITULO
-                Title = "Seleccionar Archivo"
-            };
-
-            //EN CASO DE SELECCIONAR EL ARCHIVO, ENTONCES PROCEDEMOS A ABRIR EL ARCHIVO CORRESPONDIENTE
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                dataGridView1.DataSource = ImportarDatos(openFileDialog.FileName);
-            }
-
-
-
- 
         DataView ImportarDatos(string nombrearchivo) //COMO PARAMETROS OBTENEMOS EL NOMBRE DEL ARCHIVO A IMPORTAR
         {
-            
+
             //UTILIZAMOS 12.0 DEPENDIENDO DE LA VERSION DEL EXCEL, EN CASO DE QUE LA VERSIÓN QUE TIENES ES INFERIOR AL DEL 2013, CAMBIAR A EXCEL 8.0 Y EN VEZ DE
             //ACE.OLEDB.12.0 UTILIZAR LO SIGUIENTE (Jet.Oledb.4.0)
             string conexion = string.Format("Provider = Microsoft.ACE.OLEDB.12.0; Data Source = {0}; Extended Properties = 'Excel 12.0;'", nombrearchivo);
-
+            nombrearchivo = "Regristro Actualizado";
             OleDbConnection conector = new OleDbConnection(conexion);
 
             conector.Open();
@@ -76,31 +53,46 @@ namespace App2
 
 
         }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            
+            dataGridView2.Rows.Add(99);
+
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                //DE ESTA MANERA FILTRAMOS TODOS LOS ARCHIVOS EXCEL EN EL NAVEGADOR DE ARCHIVOS
+                Filter = "Excel | *.xls;*.xlsx;",
+
+                //AQUÍ INDICAMOS QUE NOMBRE TENDRÁ EL NAVEGADOR DE ARCHIVOS COMO TITULO
+                Title = "Seleccionar Archivo"
+            };
+
+            //EN CASO DE SELECCIONAR EL ARCHIVO, ENTONCES PROCEDEMOS A ABRIR EL ARCHIVO CORRESPONDIENTE
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                dataGridView1.DataSource = ImportarDatos(openFileDialog.FileName);
+            }
+
             while (F < 100) // Este while imprime es la que se encargar de los numeros en la colunna 0
             {
-
                 dataGridView2.Rows[F].Cells[0].Value = F;
                 dataGridView2.Rows[F].Cells[0].Value = Frecuencia();
                 F++;
             }
 
-            int Frecuencia(int C = 0)
-            {
+        }
+        int Frecuencia(int C = 0)
+        {
 
-                while (Bucle)
-                {
-                    dataGridView2.Rows[Contador].Cells[0].Value = Contador++;
-                    if (Contador == 101) { Bucle = false; }
-                  
-                }
-                return D;
+            while (Bucle)
+            {
+                dataGridView2.Rows[Contador].Cells[0].Value = Contador++;
+                if (Contador == 99) { Bucle = false; }
+
             }
             Bucle = true;
-
+            return D;
         }
-
-
-
 
         private void button1_Click(object sender, EventArgs e)
         {
