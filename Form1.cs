@@ -53,6 +53,7 @@ namespace App2
 
 
         }
+        
         private void Form1_Load(object sender, EventArgs e)
         {
             
@@ -76,22 +77,26 @@ namespace App2
             while (F < 100) // Este while imprime es la que se encargar de los numeros en la colunna 0
             {
                 dataGridView2.Rows[F].Cells[0].Value = F;
-                dataGridView2.Rows[F].Cells[0].Value = Frecuencia();
+                dataGridView2.Rows[F].Cells[1].Value = Frecuencia(F);
+                Contador = 0;
                 F++;
             }
-
+            
         }
-        int Frecuencia(int C = 0)
+
+        int Frecuencia(int numero)
         {
 
             while (Bucle)
             {
-                dataGridView2.Rows[Contador].Cells[0].Value = Contador++;
-                if (Contador == 99) { Bucle = false; }
+                BaseDatos = dataGridView1.Rows[Contador].Cells[1].Value.ToString();
+                i = int.Parse(BaseDatos);
+                if (i == numero) { Contador++; }
+                if (BaseDatos == "Final") { Bucle = false; }
 
             }
             Bucle = true;
-            return D;
+            return Contador;
         }
 
         private void button1_Click(object sender, EventArgs e)
