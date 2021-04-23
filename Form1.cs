@@ -23,6 +23,7 @@ namespace App2
         int D = 0, i = 0, Contador = 0;
         int F = 0;
         string BaseDatos;
+        //int year = 1;
 
         DataView ImportarDatos(string nombrearchivo) //COMO PARAMETROS OBTENEMOS EL NOMBRE DEL ARCHIVO A IMPORTAR
         {
@@ -79,21 +80,27 @@ namespace App2
                 dataGridView2.Rows[F].Cells[0].Value = F;
                 dataGridView2.Rows[F].Cells[1].Value = Frecuencia(F);
                 Contador = 0;
+
                 F++;
             }
+            F = 0;
             
         }
 
         int Frecuencia(int numero)
         {
-
+            int a = 0;
+            int i = 2018;
             while (Bucle)
             {
-                BaseDatos = dataGridView1.Rows[Contador].Cells[1].Value.ToString();
+
+                BaseDatos = dataGridView1.Rows[a].Cells[i].Value.ToString();
+                ////if (BaseDatos == "") { continue; }
+                //if (BaseDatos == i) { i++; year++; }
                 i = int.Parse(BaseDatos);
                 if (i == numero) { Contador++; }
-                if (BaseDatos == "Final") { Bucle = false; }
-
+                if (BaseDatos == "1001") { Bucle = false; }
+                a++;
             }
             Bucle = true;
             return Contador;
