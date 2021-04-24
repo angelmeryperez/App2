@@ -25,7 +25,7 @@ namespace App2
         int G = 0;
         string BaseDatos;
         string BaseD1;
-        int fila = 0, columna = 1, i1 = 2, i2 = 1, year = 2018;
+        int fila = 0, columna = 1, i1 = 2, i2 = 1;
         int auxfila;
         //int year = 1;
 
@@ -58,20 +58,20 @@ namespace App2
 
 
         }
-        
+
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
             dataGridView2.Rows.Add(100);
 
-            dataGridView2.Rows[0].Cells[2 ].Value = "PRIMERA";
-            dataGridView2.Rows[0].Cells[3 ].Value = "SEGUNDA";
-            dataGridView2.Rows[0].Cells[4 ].Value = "TERCERA";
-            dataGridView2.Rows[0].Cells[5 ].Value = "PRIMERA";
-            dataGridView2.Rows[0].Cells[6 ].Value = "SEGUNDA";
-            dataGridView2.Rows[0].Cells[7 ].Value = "TERCERA";
-            dataGridView2.Rows[0].Cells[8 ].Value = "PRIMERA";
-            dataGridView2.Rows[0].Cells[9 ].Value = "SEGUNDA";
+            dataGridView2.Rows[0].Cells[2].Value = "PRIMERA";
+            dataGridView2.Rows[0].Cells[3].Value = "SEGUNDA";
+            dataGridView2.Rows[0].Cells[4].Value = "TERCERA";
+            dataGridView2.Rows[0].Cells[5].Value = "PRIMERA";
+            dataGridView2.Rows[0].Cells[6].Value = "SEGUNDA";
+            dataGridView2.Rows[0].Cells[7].Value = "TERCERA";
+            dataGridView2.Rows[0].Cells[8].Value = "PRIMERA";
+            dataGridView2.Rows[0].Cells[9].Value = "SEGUNDA";
             dataGridView2.Rows[0].Cells[10].Value = "TERCERA";
             dataGridView2.Rows[0].Cells[11].Value = "PRIMERA";
             dataGridView2.Rows[0].Cells[12].Value = "SEGUNDA";
@@ -108,50 +108,26 @@ namespace App2
                 F = 0;
                 i2 = 1;
                 i1++;
+                B++;
             }
 
 
-        int Frecuencia(int numero)
-        {
-            fila = 0;
-            int contador = 0;
-            while (Bucle)
+            int Frecuencia(int numero)
             {
-                BaseDatos = dataGridView1.Rows[fila].Cells[1].Value.ToString();
-                i = int.Parse(BaseDatos);
-                if (i == numero) { contador++; }
-                if (BaseDatos == "1001") { Bucle = false; }
+                fila = 0;
+                int contador = 0;
+                while (Bucle)
+                {
+                    BaseDatos = dataGridView1.Rows[fila].Cells[B].Value.ToString();
+                    i = int.Parse(BaseDatos);
+                    if (i == numero) { contador++; }
+                    fila++;
+                    if (BaseDatos == "1001") { Bucle = false; ;}
+                }
+                Bucle = true;
 
-                fila++;
+                return contador;
             }
-            
-            columna++;
-            Bucle = true;
-
-            return contador;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            ////string conexion = "Provider = Microsoft.Jet.OLEDB.4.0;Data Source = C:/Users/Angel Mery Perez/Desktop/Loto/Programs con exel/Regristro Actualizado.xlsx ;Extended Properties = \"Exel 8.0;HDR = Yes\"";
-            //String conexion = "Provider=Microsoft.ACE.OLEDB.12.0; Data Source = C:/Users/Angel Mery Perez/Desktop/Loto/Programs con exel/Regristro Actualizado.xlsx; Extended Properties='Excel 12.0 Xml;HDR=YES;'";
-            //OleDbConnection conector = default(OleDbConnection);
-            //conector = new OleDbConnection(conexion);
-            //conector.Open();
-
-            //OleDbCommand consulta = default(OleDbCommand);
-            //consulta = new OleDbCommand("selet * from[Hoja1$]",conector);
-
-            //OleDbDataAdapter Adactador = new OleDbDataAdapter();
-            //Adactador.SelectCommand = consulta;
-
-            //DataSet DS = new DataSet();
-
-            //Adactador.Fill(DS);
-            //dataGridView1.DataSource = DS.Tables[0];
-            //conector.Close();
-
-
         }
     }
 }
