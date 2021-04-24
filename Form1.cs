@@ -18,14 +18,15 @@ namespace App2
             InitializeComponent();
         }
 
-        bool bucle = true;
+        bool Bucle = true;
 
-        int D = 0, i = 0, Contador = 0, b = 0;
+        int D = 0, i = 0, B = 0;
         int F = 0;
+        int G = 0;
         string BaseDatos;
-        string BaseD1 = "angel";
-        int fila = 1, colum = 2;
-       
+        string BaseD1;
+        int fila = 0, columna = 1, i1 = 2, i2 = 1, year = 2018;
+        int auxfila;
         //int year = 1;
 
         DataView ImportarDatos(string nombrearchivo) //COMO PARAMETROS OBTENEMOS EL NOMBRE DEL ARCHIVO A IMPORTAR
@@ -62,14 +63,15 @@ namespace App2
         {
             
             dataGridView2.Rows.Add(100);
-            dataGridView2.Rows[0].Cells[2].Value = "PRIMERA";
-            dataGridView2.Rows[0].Cells[3].Value = "SEGUNDA";
-            dataGridView2.Rows[0].Cells[4].Value = "TERCERA";
-            dataGridView2.Rows[0].Cells[5].Value = "PRIMERA";
-            dataGridView2.Rows[0].Cells[6].Value = "SEGUNDA";
-            dataGridView2.Rows[0].Cells[7].Value = "TERCERA";
-            dataGridView2.Rows[0].Cells[8].Value = "PRIMERA";
-            dataGridView2.Rows[0].Cells[9].Value = "SEGUNDA";
+
+            dataGridView2.Rows[0].Cells[2 ].Value = "PRIMERA";
+            dataGridView2.Rows[0].Cells[3 ].Value = "SEGUNDA";
+            dataGridView2.Rows[0].Cells[4 ].Value = "TERCERA";
+            dataGridView2.Rows[0].Cells[5 ].Value = "PRIMERA";
+            dataGridView2.Rows[0].Cells[6 ].Value = "SEGUNDA";
+            dataGridView2.Rows[0].Cells[7 ].Value = "TERCERA";
+            dataGridView2.Rows[0].Cells[8 ].Value = "PRIMERA";
+            dataGridView2.Rows[0].Cells[9 ].Value = "SEGUNDA";
             dataGridView2.Rows[0].Cells[10].Value = "TERCERA";
             dataGridView2.Rows[0].Cells[11].Value = "PRIMERA";
             dataGridView2.Rows[0].Cells[12].Value = "SEGUNDA";
@@ -89,76 +91,45 @@ namespace App2
             {
                 dataGridView1.DataSource = ImportarDatos(openFileDialog.FileName);
             }
-            F = 1;
-
-
-
-            while (F < 101) // Este while imprime es la que se encargar de los numeros en la colunna 0
+            F = 0;
+            while (F < 100) // Este while imprime es la que se encargar de los numeros en la colunna 0
             {
-                dataGridView2.Rows[F].Cells[0].Value = F-1;
-                dataGridView2.Rows[F].Cells[1].Value = Frecuencia(F);
-                Contador = 0;
-
+                dataGridView2.Rows[F + 1].Cells[0].Value = F;
                 F++;
             }
-            dataGridView2.Rows[3].Cells[3].Value =D ;
-
-            //F = 0;
-            //while (F < 101)
-            //{
-            //    int E = 2;
-            //    int G = 2;
-            //    int i = 1;
-            //    int contador1 = 0;
-            //    int year = 2018;
-            //    bucle = true;
-
-            //    while (i < 3)
-            //    {
-            //        while (bucle)
-            //        {
-            //            BaseD1 = dataGridView1.Rows[E].Cells[1].Value.ToString();
-            //            i = int.Parse(BaseD1);
-            //            if (i == F) { contador1++; }
-            //            dataGridView2.Rows[F].Cells[G].Value = contador1;
-            //            if (BaseD1 == "" + year)
-            //            {
-            //                year++;
-            //                Contador = 0;
-            //            }
-            //            if (BaseD1 == "1001") { bucle = false; }
-            //            E++;
-
-            //        }
-            //        i++;
-            //        G++;
-            //        F++;
-            //    } 
-
-            //}
-
-
-            int Frecuencia(int numero)
+            F = 0;
+            while (i1 < 14)
             {
-                int a = 0;
-                int i = 0;
-                while (bucle)
+                while (i2 <= 100)
                 {
-
-                    BaseDatos = dataGridView1.Rows[a].Cells[1].Value.ToString();
-                    ////if (BaseDatos == "") { continue; }
-                    //if (BaseDatos == i) { i++; year++; }
-                    i = int.Parse(BaseDatos);
-                    if (i == numero) { Contador++; }
-                    if (BaseDatos == "1001") { bucle = false; }
-                    a++;   
+                    dataGridView2.Rows[i2].Cells[i1].Value = Frecuencia(F++);
+                    i2++;
                 }
-                bucle = true;
-                return Contador;
+                F = 0;
+                i2 = 1;
+                i1++;
             }
 
-        }
 
+        int Frecuencia(int numero)
+        {
+            fila = 0;
+            int contador = 0;
+            while (Bucle)
+            {
+                BaseDatos = dataGridView1.Rows[fila].Cells[1].Value.ToString();
+                i = int.Parse(BaseDatos);
+                if (i == numero) { contador++; }
+                if (BaseDatos == "1001") { Bucle = false; }
+
+                fila++;
+            }
+            
+            columna++;
+            Bucle = true;
+
+            return contador;
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
