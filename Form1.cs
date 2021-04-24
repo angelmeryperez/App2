@@ -20,11 +20,13 @@ namespace App2
 
         bool Bucle = true;
 
-        int D = 0, i = 0, Contador = 0, B = 0;
+        int D = 0, i = 0, B = 0;
         int F = 0;
+        int G = 0;
         string BaseDatos;
         string BaseD1;
-        int fila = 0, colum = 0;
+        int fila = 0, columna = 1, i1 = 2, i2 = 1, year = 2018;
+        int auxfila;
         //int year = 1;
 
         DataView ImportarDatos(string nombrearchivo) //COMO PARAMETROS OBTENEMOS EL NOMBRE DEL ARCHIVO A IMPORTAR
@@ -60,7 +62,20 @@ namespace App2
         private void Form1_Load(object sender, EventArgs e)
         {
             
-            dataGridView2.Rows.Add(99);
+            dataGridView2.Rows.Add(100);
+
+            dataGridView2.Rows[0].Cells[2 ].Value = "PRIMERA";
+            dataGridView2.Rows[0].Cells[3 ].Value = "SEGUNDA";
+            dataGridView2.Rows[0].Cells[4 ].Value = "TERCERA";
+            dataGridView2.Rows[0].Cells[5 ].Value = "PRIMERA";
+            dataGridView2.Rows[0].Cells[6 ].Value = "SEGUNDA";
+            dataGridView2.Rows[0].Cells[7 ].Value = "TERCERA";
+            dataGridView2.Rows[0].Cells[8 ].Value = "PRIMERA";
+            dataGridView2.Rows[0].Cells[9 ].Value = "SEGUNDA";
+            dataGridView2.Rows[0].Cells[10].Value = "TERCERA";
+            dataGridView2.Rows[0].Cells[11].Value = "PRIMERA";
+            dataGridView2.Rows[0].Cells[12].Value = "SEGUNDA";
+            dataGridView2.Rows[0].Cells[13].Value = "TERCERA";
 
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
@@ -76,65 +91,45 @@ namespace App2
             {
                 dataGridView1.DataSource = ImportarDatos(openFileDialog.FileName);
             }
-            F = 1;
+            F = 0;
             while (F < 100) // Este while imprime es la que se encargar de los numeros en la colunna 0
             {
-                dataGridView2.Rows[F].Cells[0].Value = B;
-                dataGridView2.Rows[F].Cells[1].Value = Frecuencia(F);
-                Contador = 0;
-
+                dataGridView2.Rows[F + 1].Cells[0].Value = F;
                 F++;
-                B++;
             }
             F = 0;
-            dataGridView2.Rows[0].Cells[2 ].Value = "PRIMERA";
-            dataGridView2.Rows[0].Cells[3 ].Value = "SEGUNDA";
-            dataGridView2.Rows[0].Cells[4 ].Value = "TERCERA";
-            dataGridView2.Rows[0].Cells[5 ].Value = "PRIMERA";
-            dataGridView2.Rows[0].Cells[6 ].Value = "SEGUNDA";
-            dataGridView2.Rows[0].Cells[7 ].Value = "TERCERA";
-            dataGridView2.Rows[0].Cells[8 ].Value = "PRIMERA";
-            dataGridView2.Rows[0].Cells[9 ].Value = "SEGUNDA";
-            dataGridView2.Rows[0].Cells[10].Value = "TERCERA";
-            dataGridView2.Rows[0].Cells[11].Value = "PRIMERA";
-            dataGridView2.Rows[0].Cells[12].Value = "SEGUNDA";
-            dataGridView2.Rows[0].Cells[13].Value = "TERCERA";
+            while (i1 < 14)
+            {
+                while (i2 <= 100)
+                {
+                    dataGridView2.Rows[i2].Cells[i1].Value = Frecuencia(F++);
+                    i2++;
+                }
+                F = 0;
+                i2 = 1;
+                i1++;
+            }
 
         }
 
         int Frecuencia(int numero)
         {
-            int   a = 0;
-            int   i = 0;
-            int año = 0;
-
+            fila = 0;
+            int contador = 0;
             while (Bucle)
             {
-                BaseDatos = dataGridView1.Rows[a].Cells[1].Value.ToString();
+                BaseDatos = dataGridView1.Rows[fila].Cells[1].Value.ToString();
                 i = int.Parse(BaseDatos);
-                if (i == numero) { Contador++; }
+                if (i == numero) { contador++; }
                 if (BaseDatos == "1001") { Bucle = false; }
-                a++;
-            }
-            Bucle = true;
-            return Contador;
 
+                fila++;
+            }
             
-        }
+            columna++;
+            Bucle = true;
 
-        int Año1(int Num1)
-        {
-            int year = 2017;
-            bool bucle = true;
-            while (bucle)
-            {
-                if (BaseDatos == "" + Num1) { Contador++; }
-                if (BaseDatos == "" + year) { year++; colum++; fila = 0; bucle = false; }
-
-            }
-
-            Contador = 0;
-            return Num1;
+            return contador;
         }
 
         private void button1_Click(object sender, EventArgs e)
