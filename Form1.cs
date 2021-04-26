@@ -20,14 +20,11 @@ namespace App2
 
         bool Bucle = true;
 
-        int D = 0, i = 0, B = 0;
+        int Suma = 0, i = 0, B = 0;
         int F = 0;
-        int G = 0;
         string BaseDatos;
         string BaseD1;
-        int fila = 0, columna = 1, i1 = 2, i2 = 1;
-        int auxfila;
-        //int year = 1;
+        int fila = 0, columna = 2, i1 = 2, i2 = 1;
 
         DataView ImportarDatos(string nombrearchivo) //COMO PARAMETROS OBTENEMOS EL NOMBRE DEL ARCHIVO A IMPORTAR
         {
@@ -63,6 +60,7 @@ namespace App2
         {
 
             dataGridView2.Rows.Add(100);
+            dataGridView3.Rows.Add(100);
 
             dataGridView2.Rows[0].Cells[2].Value = "PRIMERA";
             dataGridView2.Rows[0].Cells[3].Value = "SEGUNDA";
@@ -95,6 +93,7 @@ namespace App2
             while (F < 100) // Este while imprime es la que se encargar de los numeros en la colunna 0
             {
                 dataGridView2.Rows[F + 1].Cells[0].Value = F;
+                dataGridView3.Rows[F + 1].Cells[1].Value = F;
                 F++;
             }
             F = 0;
@@ -111,6 +110,26 @@ namespace App2
                 B++;
             }
 
+            i1 = 2;
+            i2 = 1;
+            int SumaTotal = 0;
+            while (i2 <= 100)
+            {
+                while (i1 < 14)
+                {
+                    BaseD1 = dataGridView2.Rows[i2].Cells[i1].Value.ToString();
+                    Suma = int.Parse(BaseD1);
+                    SumaTotal += Suma;
+                    
+                    i1++;
+                }
+                F = 0;
+                i1 = 2;
+                dataGridView2.Rows[i2].Cells[1].Value = SumaTotal;
+                dataGridView3.Rows[i2].Cells[0].Value = SumaTotal;
+                SumaTotal = 0;
+                i2++;
+            }
 
             int Frecuencia(int numero)
             {
@@ -119,15 +138,20 @@ namespace App2
                 while (Bucle)
                 {
                     BaseDatos = dataGridView1.Rows[fila].Cells[B].Value.ToString();
+                    if (BaseDatos == "") { return contador; }
                     i = int.Parse(BaseDatos);
                     if (i == numero) { contador++; }
+                    if (BaseDatos == "1001") { Bucle = false; }
+
                     fila++;
-                    if (BaseDatos == "1001") { Bucle = false; ;}
                 }
+
+                columna++;
                 Bucle = true;
 
                 return contador;
             }
+            dataGridView3.Sort(F22, ListSortDirection.Descending);
         }
     }
 }

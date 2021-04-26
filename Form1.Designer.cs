@@ -44,16 +44,20 @@
             this.F12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.F13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.F14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.F22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(342, 159);
+            this.dataGridView1.Location = new System.Drawing.Point(613, 50);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(81, 164);
+            this.dataGridView1.Size = new System.Drawing.Size(81, 344);
             this.dataGridView1.TabIndex = 0;
             // 
             // dataGridView2
@@ -74,9 +78,9 @@
             this.F12,
             this.F13,
             this.F14});
-            this.dataGridView2.Location = new System.Drawing.Point(54, 12);
+            this.dataGridView2.Location = new System.Drawing.Point(700, 50);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(839, 426);
+            this.dataGridView2.Size = new System.Drawing.Size(260, 344);
             this.dataGridView2.TabIndex = 1;
             // 
             // F1
@@ -149,11 +153,33 @@
             this.F14.HeaderText = "2021";
             this.F14.Name = "F14";
             // 
+            // dataGridView3
+            // 
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.F22,
+            this.Column1});
+            this.dataGridView3.Location = new System.Drawing.Point(12, 12);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.Size = new System.Drawing.Size(278, 597);
+            this.dataGridView3.TabIndex = 2;
+            // 
+            // F22
+            // 
+            this.F22.HeaderText = "TOTAL";
+            this.F22.Name = "F22";
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Numeros";
+            this.Column1.Name = "Column1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1028, 450);
+            this.ClientSize = new System.Drawing.Size(1298, 621);
+            this.Controls.Add(this.dataGridView3);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Form1";
@@ -162,6 +188,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -184,6 +211,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn F12;
         private System.Windows.Forms.DataGridViewTextBoxColumn F13;
         private System.Windows.Forms.DataGridViewTextBoxColumn F14;
+        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn F22;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }
 
