@@ -20,11 +20,15 @@ namespace App2
 
         bool Bucle = true;
 
-        int Suma = 0, i = 0, B = 0;
-        int F = 0;
+        int Suma = 0;
+        int i    = 0;
+        int B    = 0;
+        int F    = 0;
         string BaseDatos;
         string BaseD1;
-        int fila = 0, columna = 2, i1 = 2, i2 = 1;
+        int fila = 0;
+        int i1   = 2;
+        int i2   = 1;
 
         DataView ImportarDatos(string nombrearchivo) //COMO PARAMETROS OBTENEMOS EL NOMBRE DEL ARCHIVO A IMPORTAR
         {
@@ -93,9 +97,44 @@ namespace App2
             while (F < 100) // Este while imprime es la que se encargar de los numeros en la colunna 0
             {
                 dataGridView2.Rows[F + 1].Cells[0].Value = F;
-                dataGridView3.Rows[F + 1].Cells[1].Value = F;
+                dataGridView3.Rows[F].Cells[1].Value = F;
                 F++;
             }
+
+            BaseD1 = dataGridView1.Rows[0].Cells[0].Value.ToString();
+            Suma = int.Parse(BaseD1);
+
+            switch (Suma)
+            {
+                case 1002:
+                    FuncionA();
+                    SumaTotal1();
+                    break;
+
+                case 1003:
+                    F = 0;
+                    B = 0;
+
+                    while (F < 100)
+                    {
+                        dataGridView3.Rows[F].Cells[0].Value = Frecuencia(F);
+                        F++;
+                    }
+                    F = 0;
+                    break;
+
+
+
+
+                default:
+                    break;
+            }
+            Suma = 0;           
+
+            dataGridView3.Sort(F22, ListSortDirection.Descending);
+        }
+        void FuncionA() 
+        {
             F = 0;
             while (i1 < 14)
             {
@@ -110,6 +149,10 @@ namespace App2
                 B++;
             }
 
+        }
+
+        void SumaTotal1() 
+        {
             i1 = 2;
             i2 = 1;
             int SumaTotal = 0;
@@ -120,7 +163,7 @@ namespace App2
                     BaseD1 = dataGridView2.Rows[i2].Cells[i1].Value.ToString();
                     Suma = int.Parse(BaseD1);
                     SumaTotal += Suma;
-                    
+
                     i1++;
                 }
                 F = 0;
@@ -130,28 +173,24 @@ namespace App2
                 SumaTotal = 0;
                 i2++;
             }
+            
+        }
 
-            int Frecuencia(int numero)
+        int Frecuencia(int numero)
+        {
+            fila = 0;
+            int contador = 0;
+            while (Bucle)
             {
-                fila = 0;
-                int contador = 0;
-                while (Bucle)
-                {
-                    BaseDatos = dataGridView1.Rows[fila].Cells[B].Value.ToString();
-                    if (BaseDatos == "") { return contador; }
-                    i = int.Parse(BaseDatos);
-                    if (i == numero) { contador++; }
-                    if (BaseDatos == "1001") { Bucle = false; }
-
-                    fila++;
-                }
-
-                columna++;
-                Bucle = true;
-
-                return contador;
+                BaseDatos = dataGridView1.Rows[fila].Cells[B].Value.ToString();
+                if (BaseDatos == "") { return contador; }
+                i = int.Parse(BaseDatos);
+                if (i == numero) { contador++; }
+                if (BaseDatos == "1001") { Bucle = false; }
+                fila++;
             }
-            dataGridView3.Sort(F22, ListSortDirection.Descending);
+            Bucle = true;
+            return contador;
         }
     }
 }
