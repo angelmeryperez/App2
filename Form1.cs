@@ -29,6 +29,10 @@ namespace App2
         int fila = 0;
         int i1   = 2;
         int i2   = 1;
+        string Colum;
+        int Columna = 0;
+        int V = 0;
+        //string[] COLUM = new string[] { Column1, "Column2", "Column3", "Column4", "Column5", "Column6", "Column7", "Column8", "Column9", "Column10", "Column11", "Column12", "Column13", "Column14", "Column15", "Column16", "Column17", "Column18", "Column19", "Column20", };
 
         DataView ImportarDatos(string nombrearchivo) //COMO PARAMETROS OBTENEMOS EL NOMBRE DEL ARCHIVO A IMPORTAR
         {
@@ -60,24 +64,29 @@ namespace App2
 
         }
 
+        private void dataGridView4_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
-            dataGridView2.Rows.Add(100);
-            dataGridView3.Rows.Add(100);
+            dataGridView2.Rows.Add(80);
+            dataGridView4.Rows.Add(99);
 
-            dataGridView2.Rows[0].Cells[2].Value = "PRIMERA";
-            dataGridView2.Rows[0].Cells[3].Value = "SEGUNDA";
-            dataGridView2.Rows[0].Cells[4].Value = "TERCERA";
-            dataGridView2.Rows[0].Cells[5].Value = "PRIMERA";
-            dataGridView2.Rows[0].Cells[6].Value = "SEGUNDA";
-            dataGridView2.Rows[0].Cells[7].Value = "TERCERA";
-            dataGridView2.Rows[0].Cells[8].Value = "PRIMERA";
-            dataGridView2.Rows[0].Cells[9].Value = "SEGUNDA";
-            dataGridView2.Rows[0].Cells[10].Value = "TERCERA";
-            dataGridView2.Rows[0].Cells[11].Value = "PRIMERA";
-            dataGridView2.Rows[0].Cells[12].Value = "SEGUNDA";
-            dataGridView2.Rows[0].Cells[13].Value = "TERCERA";
+            for (int C = 0; C <= 80; C++)
+            {
+                dataGridView2.Rows[C].Cells[0].Value = "JUGADAS: " + C ; 
+            }
+
+            for (int K = 1; K < 21; K++)
+            {
+                for (int N = 0; N < 80; N++)
+                {
+                    dataGridView2.Rows[N].Cells[K].Value = 0;
+                } 
+            }
 
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
@@ -96,59 +105,40 @@ namespace App2
             F = 0;
             while (F < 100) // Este while imprime es la que se encargar de los numeros en la colunna 0
             {
-                dataGridView2.Rows[F + 1].Cells[0].Value = F;
-                dataGridView3.Rows[F].Cells[1].Value = F;
+                dataGridView4.Rows[F + 1].Cells[0].Value = F;
                 F++;
             }
 
             BaseD1 = dataGridView1.Rows[0].Cells[0].Value.ToString();
             Suma = int.Parse(BaseD1);
+            
+            Colum = dataGridView1.Rows[0].Cells[0].Value.ToString();
+            Columna = int.Parse(Colum);
+            V = Columna - 1000;
 
-            switch (Suma)
-            {
-                case 1002:
-                    FuncionA();
-                    SumaTotal1();
-                    break;
+            FuncionA();
+            SumaTotal1();
+            Colmna();
 
-                case 1003:
-                    F = 0;
-                    B = 0;
-
-                    while (F < 100)
-                    {
-                        dataGridView3.Rows[F].Cells[0].Value = Frecuencia(F);
-                        F++;
-                    }
-                    F = 0;
-                    break;
-
-
-
-
-                default:
-                    break;
-            }
-            Suma = 0;           
-
-            dataGridView3.Sort(F22, ListSortDirection.Descending);
         }
         void FuncionA() 
         {
+           
             F = 0;
-            while (i1 < 14)
+
+            while (i1-1 < V+1)
             {
                 while (i2 <= 100)
                 {
-                    dataGridView2.Rows[i2].Cells[i1].Value = Frecuencia(F++);
-                    i2++;
+                    dataGridView4.Rows[i2].Cells[i1].Value = Frecuencia(F++);
+                    i2++;     
                 }
+                B++;
                 F = 0;
                 i2 = 1;
                 i1++;
-                B++;
             }
-
+            dataGridView4.Rows[1].Cells[1].Value = B; 
         }
 
         void SumaTotal1() 
@@ -158,18 +148,24 @@ namespace App2
             int SumaTotal = 0;
             while (i2 <= 100)
             {
-                while (i1 < 14)
+                while (i1 < V+2)
                 {
-                    BaseD1 = dataGridView2.Rows[i2].Cells[i1].Value.ToString();
+                    try
+                    {
+                        BaseD1 = dataGridView4.Rows[i2].Cells[i1].Value.ToString();
+                    }
+                    catch (Exception)
+                    {
+
+                        continue;
+                    }
                     Suma = int.Parse(BaseD1);
                     SumaTotal += Suma;
-
                     i1++;
                 }
                 F = 0;
                 i1 = 2;
-                dataGridView2.Rows[i2].Cells[1].Value = SumaTotal;
-                dataGridView3.Rows[i2].Cells[0].Value = SumaTotal;
+                dataGridView4.Rows[i2].Cells[1].Value = SumaTotal;
                 SumaTotal = 0;
                 i2++;
             }
@@ -182,15 +178,180 @@ namespace App2
             int contador = 0;
             while (Bucle)
             {
-                BaseDatos = dataGridView1.Rows[fila].Cells[B].Value.ToString();
+                try
+                {
+                    BaseDatos = dataGridView1.Rows[fila].Cells[B].Value.ToString();
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("Proceso Terminado");
+                }
                 if (BaseDatos == "") { return contador; }
                 i = int.Parse(BaseDatos);
                 if (i == numero) { contador++; }
-                if (BaseDatos == "1001") { Bucle = false; }
+                if (BaseDatos == "1000") { Bucle = false; }
                 fila++;
             }
             Bucle = true;
             return contador;
+        }
+
+        void Combinaciones(int W) 
+        {
+                for (int M = 0; M < 81; M++)
+                {
+                    try
+                    {
+                        BaseDatos = dataGridView4.Rows[M].Cells[0].Value.ToString();
+                    }
+                    catch (Exception)
+                    {
+                        continue;
+                    }
+                    if (BaseDatos == "") { continue; }
+                    if (BaseDatos != "")
+                    {
+                        dataGridView2.Rows[M].Cells[B].Value = BaseDatos;
+                    }
+                } 
+            
+        }
+
+        void Colmna()
+        {
+            B = 1;
+            if (B <= V)
+            {
+                dataGridView4.Sort(Column2, ListSortDirection.Descending);
+                Combinaciones(0); 
+            }
+            B++;
+            if (B <= V)
+            {
+                dataGridView4.Sort(Column3, ListSortDirection.Descending);
+                Combinaciones(0);
+            }
+            B++;
+            if (B <= V)
+            {
+                dataGridView4.Sort(Column4, ListSortDirection.Descending);
+                Combinaciones(0);
+            }
+            B++;
+            if (B <= V)
+            {
+                dataGridView4.Sort(Column5, ListSortDirection.Descending);
+                Combinaciones(0);
+            }
+            B++;
+            if (B <= V)
+            {
+                dataGridView4.Sort(Column6, ListSortDirection.Descending);
+                Combinaciones(0);
+            }
+            B++;
+            if (B <= V)
+            {
+                dataGridView4.Sort(Column7, ListSortDirection.Descending);
+                Combinaciones(0);
+            }
+            B++;
+            if (B <= V)
+            {
+                dataGridView4.Sort(Column8, ListSortDirection.Descending);
+                Combinaciones(0);
+            }
+            B++;
+            if (B <= V)
+            {
+                dataGridView4.Sort(Column9, ListSortDirection.Descending);
+                Combinaciones(0);
+            }
+            B++;
+            if (B <= V)
+            {
+                dataGridView4.Sort(Column10, ListSortDirection.Descending);
+                Combinaciones(0);
+            }
+            B++;
+            if (B <= V)
+            {
+                dataGridView4.Sort(Column11, ListSortDirection.Descending);
+                Combinaciones(0);
+            }
+            B++;
+            if (B <= V)
+            {
+                dataGridView4.Sort(Column12, ListSortDirection.Descending);
+                Combinaciones(0);
+            }
+            B++;
+            if (B <= V)
+            {
+                dataGridView4.Sort(Column13, ListSortDirection.Descending);
+                Combinaciones(0);
+            }
+            B++;
+            if (B <= V)
+            {
+                dataGridView4.Sort(Column14, ListSortDirection.Descending);
+                Combinaciones(0);
+            }
+            B++;
+            if (B <= V)
+            {
+                dataGridView4.Sort(Column15, ListSortDirection.Descending);
+                Combinaciones(0);
+            }
+            B++;
+            if (B <= V)
+            {
+                dataGridView4.Sort(Column16, ListSortDirection.Descending);
+                Combinaciones(0);
+            }
+            B++;
+            if (B <= V)
+            {
+                dataGridView4.Sort(Column17, ListSortDirection.Descending);
+                Combinaciones(0);
+            }
+            B++;
+            if (B <= V)
+            {
+                dataGridView4.Sort(Column18, ListSortDirection.Descending);
+                Combinaciones(0);
+            }
+            B++;
+            if (B <= V)
+            {
+                dataGridView4.Sort(Column19, ListSortDirection.Descending);
+                Combinaciones(0);
+            }
+            B++;
+            if (B <= V)
+            {
+                dataGridView4.Sort(Column20, ListSortDirection.Descending);
+                Combinaciones(0);
+            }
+            B++;
+            if (B <= V)
+            {
+                dataGridView4.Sort(Column42, ListSortDirection.Descending);
+                Combinaciones(0);
+            }
+            B++;
+            if (B <= V)
+            {
+                dataGridView4.Sort(Column43, ListSortDirection.Descending);
+                Combinaciones(0);
+            }
+            B++;
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
         }
     }
 }
