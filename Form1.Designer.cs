@@ -89,7 +89,7 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(309, 12);
+            this.dataGridView1.Location = new System.Drawing.Point(85, 153);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(21, 90);
             this.dataGridView1.TabIndex = 0;
@@ -122,7 +122,7 @@
             this.Column49});
             this.dataGridView4.Location = new System.Drawing.Point(12, 12);
             this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.Size = new System.Drawing.Size(524, 608);
+            this.dataGridView4.Size = new System.Drawing.Size(143, 608);
             this.dataGridView4.TabIndex = 3;
             this.dataGridView4.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4_CellContentClick);
             // 
@@ -158,9 +158,9 @@
             this.Column46,
             this.Column47,
             this.Column48});
-            this.dataGridView2.Location = new System.Drawing.Point(542, 12);
+            this.dataGridView2.Location = new System.Drawing.Point(161, 12);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(744, 597);
+            this.dataGridView2.Size = new System.Drawing.Size(1125, 597);
             this.dataGridView2.TabIndex = 4;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 

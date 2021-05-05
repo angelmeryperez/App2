@@ -344,25 +344,30 @@ namespace App2
         void Aciertos()
         {
             F = 0;
-            for (int Filas = 0; Filas < G-1; Filas++)
+            for (int Filas = 0; Filas < G; Filas++)
             {
-                for (int Columnas = 1; Columnas < V+1; Columnas++)
+                for (int Columnas = 1; Columnas < V+ 1; Columnas++)
                 {
                     Jugada[Columnas] = dataGridView2.Rows[Filas].Cells[Columnas].Value.ToString();
-
                 }
-                for (int i = 0; i < 10; i++)
+
+                for (int H = 0; H < 100; H++)
                 {
-                    for (int B = 0; B <= V-1; B++)
+                    for (int i = 1; i < V + 1; i++)
                     {
-                        BaseD1 = dataGridView1.Rows[Filas].Cells[B].Value.ToString();
-                        if (Jugada[i] == BaseD1)
+                        for (int B = 0; B <= V - 1; B++)
                         {
-                            F++;
-                        }
-                        dataGridView2.Rows[Filas].Cells[V+1].Value = F;
+                            BaseD1 = dataGridView1.Rows[H].Cells[B].Value.ToString();
+                            if (Jugada[i] == BaseD1)
+                            {
+                                F++;
+                            }
+                            dataGridView2.Rows[Filas].Cells[V + 1].Value = F;
+                        }  
                     }
                 }
+                
+
                 F = 0;
             }
         }
