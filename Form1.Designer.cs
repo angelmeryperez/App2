@@ -52,10 +52,8 @@
             this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column42 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column43 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column49 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column41 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,7 +73,14 @@
             this.Column38 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column39 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column40 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column41 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column42 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column43 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column44 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column45 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column46 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column47 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column48 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -114,8 +119,7 @@
             this.Column18,
             this.Column19,
             this.Column20,
-            this.Column42,
-            this.Column43});
+            this.Column49});
             this.dataGridView4.Location = new System.Drawing.Point(12, 12);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.Size = new System.Drawing.Size(524, 608);
@@ -127,7 +131,6 @@
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column21,
-            this.Column41,
             this.Column22,
             this.Column23,
             this.Column24,
@@ -147,7 +150,14 @@
             this.Column38,
             this.Column39,
             this.Column40,
-            this.Column44});
+            this.Column41,
+            this.Column42,
+            this.Column43,
+            this.Column44,
+            this.Column45,
+            this.Column46,
+            this.Column47,
+            this.Column48});
             this.dataGridView2.Location = new System.Drawing.Point(542, 12);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(744, 597);
@@ -259,25 +269,15 @@
             this.Column20.HeaderText = "Column20";
             this.Column20.Name = "Column20";
             // 
-            // Column42
+            // Column49
             // 
-            this.Column42.HeaderText = "Column42";
-            this.Column42.Name = "Column42";
-            // 
-            // Column43
-            // 
-            this.Column43.HeaderText = "Column43";
-            this.Column43.Name = "Column43";
+            this.Column49.HeaderText = "Column49";
+            this.Column49.Name = "Column49";
             // 
             // Column21
             // 
             this.Column21.HeaderText = "Column21";
             this.Column21.Name = "Column21";
-            // 
-            // Column41
-            // 
-            this.Column41.HeaderText = "Column41";
-            this.Column41.Name = "Column41";
             // 
             // Column22
             // 
@@ -374,10 +374,45 @@
             this.Column40.HeaderText = "Column40";
             this.Column40.Name = "Column40";
             // 
+            // Column41
+            // 
+            this.Column41.HeaderText = "Column41";
+            this.Column41.Name = "Column41";
+            // 
+            // Column42
+            // 
+            this.Column42.HeaderText = "Column42";
+            this.Column42.Name = "Column42";
+            // 
+            // Column43
+            // 
+            this.Column43.HeaderText = "Column43";
+            this.Column43.Name = "Column43";
+            // 
             // Column44
             // 
             this.Column44.HeaderText = "Column44";
             this.Column44.Name = "Column44";
+            // 
+            // Column45
+            // 
+            this.Column45.HeaderText = "Column45";
+            this.Column45.Name = "Column45";
+            // 
+            // Column46
+            // 
+            this.Column46.HeaderText = "Column46";
+            this.Column46.Name = "Column46";
+            // 
+            // Column47
+            // 
+            this.Column47.HeaderText = "Column47";
+            this.Column47.Name = "Column47";
+            // 
+            // Column48
+            // 
+            this.Column48.HeaderText = "Column48";
+            this.Column48.Name = "Column48";
             // 
             // Form1
             // 
@@ -424,10 +459,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column20;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column42;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column43;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column49;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column21;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column41;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column22;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column23;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column24;
@@ -447,7 +480,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column38;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column39;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column40;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column41;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column42;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column43;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column44;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column45;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column46;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column47;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column48;
     }
 }
 
