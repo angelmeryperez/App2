@@ -67,9 +67,11 @@ namespace App2
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+
             INICIO();
             FuncionA();
             SumaTotal1();
+            ContadorBinario(5);
             Colmna();
             Aciertos();
         }
@@ -181,13 +183,13 @@ namespace App2
                 }
                 
             }
-        }
+        }    
         void ContadorBinario(int x)
         {
             int contador = 0;
             while (contador < 20)
             {
-                numbi[contador] = x % 2;
+                numbi[contador++] = x % 2;
                 x /= 2;
             }
         }
@@ -217,12 +219,23 @@ namespace App2
                 dataGridView4.Rows[F].Cells[0].Value = F;
                 F++;
             }
+
+
             BaseD1 = dataGridView1.Rows[0].Cells[0].Value.ToString();
             Suma = int.Parse(BaseD1);
 
             Colum = dataGridView1.Rows[0].Cells[0].Value.ToString();
             Columna = int.Parse(Colum);
             V = Columna - 1000;
+
+            Colum = dataGridView1.Rows[1].Cells[0].Value.ToString();
+            Columna = int.Parse(Colum);
+
+            for (int i = 0; i < Columna; i++)
+            {
+                dataGridView1.Rows[i].Cells[V].Value = i;
+            }
+            dataGridView1.Sort(colum);
 
             if (V == 20) { G = 80; } else { G = 100; }
             for (int C = 0; C <= G; C++)
@@ -260,7 +273,7 @@ namespace App2
                     Jugada[Columnas] = dataGridView2.Rows[Filas].Cells[Columnas].Value.ToString();
                 }
 
-                for (int H = 0; H < G; H++)
+                for (int H = 0; H < 30; H++)
                 {
                     for (int i = 1; i < V + 1; i++)
                     {
