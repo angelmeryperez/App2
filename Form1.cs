@@ -25,6 +25,7 @@ namespace App2
         int        i2 = 1;
         int   Columna = 0;
         int         V = 0;
+        int[] numbi = new int[22];
 
         string  BaseDatos;
         string     BaseD1;
@@ -166,126 +167,29 @@ namespace App2
         void Colmna()
         {
             B = 1;
-            if (B <= V)
+            for (int i = 2; i <= V+2; i++)
             {
-                dataGridView4.Sort(Column2, ListSortDirection.Descending);
-                Combinaciones();
+                if (numbi[i-2] == 1)
+                {
+                    dataGridView4.Sort(dataGridView4.Columns[i], ListSortDirection.Descending);
+                    Combinaciones(); B++;
+                }
+                else
+                {
+                    dataGridView4.Sort(dataGridView4.Columns[i], ListSortDirection.Ascending);
+                    Combinaciones(); B++;
+                }
+                
             }
-            B++;
-            if (B <= V)
+        }
+        void ContadorBinario(int x)
+        {
+            int contador = 0;
+            while (contador < 20)
             {
-                dataGridView4.Sort(Column3, ListSortDirection.Descending);
-                Combinaciones();
+                numbi[contador] = x % 2;
+                x /= 2;
             }
-            B++;
-            if (B <= V)
-            {
-                dataGridView4.Sort(Column4, ListSortDirection.Descending);
-                Combinaciones();
-            }
-            B++;
-            if (B <= V)
-            {
-                dataGridView4.Sort(Column5, ListSortDirection.Descending);
-                Combinaciones();
-            }
-            B++;
-            if (B <= V)
-            {
-                dataGridView4.Sort(Column6, ListSortDirection.Descending);
-                Combinaciones();
-            }
-            B++;
-            if (B <= V)
-            {
-                dataGridView4.Sort(Column7, ListSortDirection.Descending);
-                Combinaciones();
-            }
-            B++;
-            if (B <= V)
-            {
-                dataGridView4.Sort(Column8, ListSortDirection.Descending);
-                Combinaciones();
-            }
-            B++;
-            if (B <= V)
-            {
-                dataGridView4.Sort(Column9, ListSortDirection.Descending);
-                Combinaciones();
-            }
-            B++;
-            if (B <= V)
-            {
-                dataGridView4.Sort(Column10, ListSortDirection.Descending);
-                Combinaciones();
-            }
-            B++;
-            if (B <= V)
-            {
-                dataGridView4.Sort(Column11, ListSortDirection.Descending);
-                Combinaciones();
-            }
-            B++;
-            if (B <= V)
-            {
-                dataGridView4.Sort(Column12, ListSortDirection.Descending);
-                Combinaciones();
-            }
-            B++;
-            if (B <= V)
-            {
-                dataGridView4.Sort(Column13, ListSortDirection.Descending);
-                Combinaciones();
-            }
-            B++;
-            if (B <= V)
-            {
-                dataGridView4.Sort(Column14, ListSortDirection.Descending);
-                Combinaciones();
-            }
-            B++;
-            if (B <= V)
-            {
-                dataGridView4.Sort(Column15, ListSortDirection.Descending);
-                Combinaciones();
-            }
-            B++;
-            if (B <= V)
-            {
-                dataGridView4.Sort(Column16, ListSortDirection.Descending);
-                Combinaciones();
-            }
-            B++;
-            if (B <= V)
-            {
-                dataGridView4.Sort(Column17, ListSortDirection.Descending);
-                Combinaciones();
-            }
-            B++;
-            if (B <= V)
-            {
-                dataGridView4.Sort(Column18, ListSortDirection.Descending);
-                Combinaciones();
-            }
-            B++;
-            if (B <= V)
-            {
-                dataGridView4.Sort(Column19, ListSortDirection.Descending);
-                Combinaciones();
-            }
-            B++;
-            if (B <= V)
-            {
-                dataGridView4.Sort(Column20, ListSortDirection.Descending);
-                Combinaciones();
-            }
-            B++;
-            if (B <= V)
-            {
-                dataGridView4.Sort(Column49, ListSortDirection.Descending);
-                Combinaciones();
-            }
-            B++;
         }
         void INICIO()
         {
@@ -329,11 +233,16 @@ namespace App2
                 }
             }
 
+            for (int i = 0; i < 20; i++)
+            {
+                numbi[i] = 1; 
+            }
+
             for (int K = 1; K < 27; K++)
             {
                 for (int N = 0; N < G; N++)
                 {
-                    if (K < 21)
+                    if (K < 23)
                     {
                         dataGridView4.Rows[N].Cells[K].Value = 0;
                     }
@@ -351,7 +260,7 @@ namespace App2
                     Jugada[Columnas] = dataGridView2.Rows[Filas].Cells[Columnas].Value.ToString();
                 }
 
-                for (int H = 0; H < 100; H++)
+                for (int H = 0; H < G; H++)
                 {
                     for (int i = 1; i < V + 1; i++)
                     {
@@ -366,8 +275,6 @@ namespace App2
                         }  
                     }
                 }
-                
-
                 F = 0;
             }
         }
