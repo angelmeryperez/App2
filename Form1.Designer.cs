@@ -83,6 +83,27 @@
             this.Column46 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column47 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column48 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column52 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column53 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column54 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column55 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column56 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column57 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column58 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column59 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column60 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column61 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column62 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column63 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column64 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column65 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column66 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column67 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column68 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column69 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column70 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column71 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column72 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -91,9 +112,31 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(85, 153);
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column52,
+            this.Column53,
+            this.Column54,
+            this.Column55,
+            this.Column56,
+            this.Column57,
+            this.Column58,
+            this.Column59,
+            this.Column60,
+            this.Column61,
+            this.Column62,
+            this.Column63,
+            this.Column64,
+            this.Column65,
+            this.Column66,
+            this.Column67,
+            this.Column68,
+            this.Column69,
+            this.Column70,
+            this.Column71,
+            this.Column72});
+            this.dataGridView1.Location = new System.Drawing.Point(257, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(313, 300);
+            this.dataGridView1.Size = new System.Drawing.Size(313, 597);
             this.dataGridView1.TabIndex = 0;
             // 
             // dataGridView4
@@ -126,7 +169,7 @@
             this.Column49});
             this.dataGridView4.Location = new System.Drawing.Point(12, 12);
             this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.Size = new System.Drawing.Size(55, 608);
+            this.dataGridView4.Size = new System.Drawing.Size(239, 608);
             this.dataGridView4.TabIndex = 3;
             this.dataGridView4.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4_CellContentClick);
             // 
@@ -428,6 +471,111 @@
             this.Column48.HeaderText = "Column48";
             this.Column48.Name = "Column48";
             // 
+            // Column52
+            // 
+            this.Column52.HeaderText = "Column52";
+            this.Column52.Name = "Column52";
+            // 
+            // Column53
+            // 
+            this.Column53.HeaderText = "Column53";
+            this.Column53.Name = "Column53";
+            // 
+            // Column54
+            // 
+            this.Column54.HeaderText = "Column54";
+            this.Column54.Name = "Column54";
+            // 
+            // Column55
+            // 
+            this.Column55.HeaderText = "Column55";
+            this.Column55.Name = "Column55";
+            // 
+            // Column56
+            // 
+            this.Column56.HeaderText = "Column56";
+            this.Column56.Name = "Column56";
+            // 
+            // Column57
+            // 
+            this.Column57.HeaderText = "Column57";
+            this.Column57.Name = "Column57";
+            // 
+            // Column58
+            // 
+            this.Column58.HeaderText = "Column58";
+            this.Column58.Name = "Column58";
+            // 
+            // Column59
+            // 
+            this.Column59.HeaderText = "Column59";
+            this.Column59.Name = "Column59";
+            // 
+            // Column60
+            // 
+            this.Column60.HeaderText = "Column60";
+            this.Column60.Name = "Column60";
+            // 
+            // Column61
+            // 
+            this.Column61.HeaderText = "Column61";
+            this.Column61.Name = "Column61";
+            // 
+            // Column62
+            // 
+            this.Column62.HeaderText = "Column62";
+            this.Column62.Name = "Column62";
+            // 
+            // Column63
+            // 
+            this.Column63.HeaderText = "Column63";
+            this.Column63.Name = "Column63";
+            // 
+            // Column64
+            // 
+            this.Column64.HeaderText = "Column64";
+            this.Column64.Name = "Column64";
+            // 
+            // Column65
+            // 
+            this.Column65.HeaderText = "Column65";
+            this.Column65.Name = "Column65";
+            // 
+            // Column66
+            // 
+            this.Column66.HeaderText = "Column66";
+            this.Column66.Name = "Column66";
+            // 
+            // Column67
+            // 
+            this.Column67.HeaderText = "Column67";
+            this.Column67.Name = "Column67";
+            // 
+            // Column68
+            // 
+            this.Column68.HeaderText = "Column68";
+            this.Column68.Name = "Column68";
+            // 
+            // Column69
+            // 
+            this.Column69.HeaderText = "Column69";
+            this.Column69.Name = "Column69";
+            // 
+            // Column70
+            // 
+            this.Column70.HeaderText = "Column70";
+            this.Column70.Name = "Column70";
+            // 
+            // Column71
+            // 
+            this.Column71.HeaderText = "Column71";
+            this.Column71.Name = "Column71";
+            // 
+            // Column72
+            // 
+            this.Column72.HeaderText = "Column72";
+            this.Column72.Name = "Column72";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -504,6 +652,27 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column20;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column49;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column52;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column53;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column54;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column55;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column56;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column57;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column58;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column59;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column60;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column61;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column62;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column63;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column64;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column65;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column66;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column67;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column68;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column69;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column70;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column71;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column72;
     }
 }
 

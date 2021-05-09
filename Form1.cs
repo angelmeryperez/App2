@@ -15,21 +15,21 @@ namespace App2
 
         bool Bucle = true;
 
-        int      Suma = 0;
-        int         i = 0;
-        int         G = 0;
-        int         B = 0;
-        int         F = 0;
-        int      fila = 0;
-        int        i1 = 2;
-        int        i2 = 1;
-        int   Columna = 0;
-        int         V = 0;
+        int Suma = 0;
+        int i = 0;
+        int G = 0;
+        int B = 0;
+        int F = 0;
+        int fila = 0;
+        int i1 = 2;
+        int i2 = 1;
+        int Columna = 0;
+        int V = 0;
         int[] numbi = new int[22];
 
-        string  BaseDatos;
-        string     BaseD1;
-        string      Colum;
+        string BaseDatos;
+        string BaseD1;
+        string Colum;
         string[] Jugada = new string[22];
 
         DataView ImportarDatos(string nombrearchivo) //COMO PARAMETROS OBTENEMOS EL NOMBRE DEL ARCHIVO A IMPORTAR
@@ -67,22 +67,27 @@ namespace App2
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-
             INICIO();
-            FuncionA();
-            SumaTotal1();
-            ContadorBinario(5);
-            Colmna();
-            Aciertos();
+
+            for (int i = 0; i <= 7; i++)
+            {
+                FuncionA();
+                ContadorBinario(i);
+                SumaTotal1();
+                Colmna();
+                Aciertos();
+                ExportarDatos(dataGridView2);
+            }
         }
         void FuncionA()
         {
+
             F = 0;
+            B = 0;
             while (i1 - 1 < V + 1)
             {
                 while (i2 <= 100)
                 {
-
                     dataGridView4.Rows[i2].Cells[i1].Value = Frecuencia(F++);
                     i2++;
                 }
@@ -91,6 +96,7 @@ namespace App2
                 i2 = 1;
                 i1++;
             }
+            dataGridView4.Rows[1].Cells[1].Value = B;
         }
         void SumaTotal1()
         {
@@ -122,7 +128,7 @@ namespace App2
             }
 
         }
-        int  Frecuencia(int numero)
+        int Frecuencia(int numero)
         {
             fila = 0;
             int contador = 0;
@@ -169,9 +175,9 @@ namespace App2
         void Colmna()
         {
             B = 1;
-            for (int i = 2; i <= V+2; i++)
+            for (int i = 2; i <= V + 2; i++)
             {
-                if (numbi[i-2] == 1)
+                if (numbi[i - 2] == 1)
                 {
                     dataGridView4.Sort(dataGridView4.Columns[i], ListSortDirection.Descending);
                     Combinaciones(); B++;
@@ -181,9 +187,9 @@ namespace App2
                     dataGridView4.Sort(dataGridView4.Columns[i], ListSortDirection.Ascending);
                     Combinaciones(); B++;
                 }
-                
+
             }
-        }    
+        }
         void ContadorBinario(int x)
         {
             int contador = 0;
@@ -195,10 +201,8 @@ namespace App2
         }
         void INICIO()
         {
-
             dataGridView2.Rows.Add(99);
             dataGridView4.Rows.Add(100);
-
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
                 //DE ESTA MANERA FILTRAMOS TODOS LOS ARCHIVOS EXCEL EN EL NAVEGADOR DE ARCHIVOS
@@ -219,8 +223,6 @@ namespace App2
                 dataGridView4.Rows[F].Cells[0].Value = F;
                 F++;
             }
-
-
             BaseD1 = dataGridView1.Rows[0].Cells[0].Value.ToString();
             Suma = int.Parse(BaseD1);
 
@@ -228,14 +230,6 @@ namespace App2
             Columna = int.Parse(Colum);
             V = Columna - 1000;
 
-            Colum = dataGridView1.Rows[1].Cells[0].Value.ToString();
-            Columna = int.Parse(Colum);
-
-            for (int i = 0; i < Columna; i++)
-            {
-                dataGridView1.Rows[i].Cells[V].Value = i;
-            }
-            dataGridView1.Sort(colum);
 
             if (V == 20) { G = 80; } else { G = 100; }
             for (int C = 0; C <= G; C++)
@@ -248,7 +242,7 @@ namespace App2
 
             for (int i = 0; i < 20; i++)
             {
-                numbi[i] = 1; 
+                numbi[i] = 1;
             }
 
             for (int K = 1; K < 27; K++)
@@ -268,12 +262,12 @@ namespace App2
             F = 0;
             for (int Filas = 0; Filas < G; Filas++)
             {
-                for (int Columnas = 1; Columnas < V+ 1; Columnas++)
+                for (int Columnas = 1; Columnas < V + 1; Columnas++)
                 {
                     Jugada[Columnas] = dataGridView2.Rows[Filas].Cells[Columnas].Value.ToString();
                 }
 
-                for (int H = 0; H < 30; H++)
+                for (int H = 0; H < G; H++)
                 {
                     for (int i = 1; i < V + 1; i++)
                     {
@@ -285,11 +279,35 @@ namespace App2
                                 F++;
                             }
                             dataGridView2.Rows[Filas].Cells[V + 1].Value = F;
-                        }  
+                        }
                     }
                 }
                 F = 0;
             }
+        }
+        private void ExportarDatos(DataGridView datalistado)
+        {
+
+            Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application(); // Instancia a la libreria de Microsoft Office
+            excel.Application.Workbooks.Add(true); //Con esto añadimos una hoja en el Excel para exportar los archivos
+            int IndiceColumna = 0;
+            foreach (DataGridViewColumn columna in datalistado.Columns) //Aquí empezamos a leer las columnas del listado a exportar
+            {
+                IndiceColumna++;
+                excel.Cells[1, IndiceColumna] = columna.Name;
+            }
+            int IndiceFila = 0;
+            foreach (DataGridViewRow fila in datalistado.Rows) //Aquí leemos las filas de las columnas leídas
+            {
+                IndiceFila++;
+                IndiceColumna = 0;
+                foreach (DataGridViewColumn columna in datalistado.Columns)
+                {
+                    IndiceColumna++;
+                    excel.Cells[IndiceFila + 1, IndiceColumna] = fila.Cells[columna.Name].Value;
+                }
+            }
+            excel.Visible = true;
         }
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
