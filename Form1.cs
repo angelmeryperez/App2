@@ -17,7 +17,6 @@ namespace App2
 
         int Suma = 0;
         int i = 0;
-        int U = 0;
         int G = 0;
         int B = 0;
         int F = 0;
@@ -32,7 +31,6 @@ namespace App2
         string BaseD1;
         string Colum;
         string[] Jugada = new string[22];
-
         DataView ImportarDatos(string nombrearchivo) //COMO PARAMETROS OBTENEMOS EL NOMBRE DEL ARCHIVO A IMPORTAR
         {
 
@@ -215,7 +213,7 @@ namespace App2
             //EN CASO DE SELECCIONAR EL ARCHIVO, ENTONCES PROCEDEMOS A ABRIR EL ARCHIVO CORRESPONDIENTE
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                dataGridView3.DataSource = ImportarDatos(openFileDialog.FileName);
+                dataGridView1.DataSource = ImportarDatos(openFileDialog.FileName);
             }
             F = 0;
             while (F < 100) // Este while imprime es la que se encargar de los numeros en la colunna 0
@@ -224,38 +222,9 @@ namespace App2
                 F++;
             }
 
-            BaseD1 = dataGridView3.Rows[0].Cells[1].Value.ToString();
-            Suma = int.Parse(BaseD1);
-            Colum = dataGridView3.Rows[0].Cells[0].Value.ToString();
+            Colum = dataGridView1.Rows[0].Cells[0].Value.ToString();
             Columna = int.Parse(Colum);
             V = Columna - 1000;
-            dataGridView1.Rows.Add(Suma);
-
-            for (int i = 0; i < V - 1; i++)
-            {
-                for (int R = 0; R < Suma; R++)
-                {
-                    dataGridView1.Rows[R].Cells[V].Value = 0;
-                }
-            }
-
-            for (int i = 0; i < V - 1; i++)
-            {
-                for (int R = 0; R <= Suma; R++)
-                {
-                    dataGridView1.Rows[R+1].Cells[V].Value = dataGridView3.Rows[R].Cells[V].Value;
-                }
-                dataGridView1.Rows[0].Cells[i].Value = 0;
-            }
-
-            switch (V)
-            {
-                case 1: dataGridView1.Sort(dataGridView1.Columns[53], ListSortDirection.Descending); break;
-                case 3: dataGridView1.Sort(dataGridView1.Columns[52], ListSortDirection.Descending); break;
-                case 5: dataGridView1.Sort(dataGridView1.Columns[57], ListSortDirection.Descending); break;
-                case 6: dataGridView1.Sort(dataGridView1.Columns[58], ListSortDirection.Descending); break;
-                case 20: dataGridView1.Sort(dataGridView1.Columns[72], ListSortDirection.Descending); break;
-            }
 
             if (V == 20) { G = 80; } else { G = 100; }
             for (int C = 0; C <= G; C++)
@@ -339,7 +308,6 @@ namespace App2
         {
 
         }
-
         private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
